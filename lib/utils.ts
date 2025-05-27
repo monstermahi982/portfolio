@@ -79,19 +79,7 @@ export const skills: Skill[] = [
   },
   {
     category: "Backend",
-    items: ["Node.js", "NestJS", "MongoDB", "PostgreSQL", "Golang"],
-  },
-  {
-    category: "DevOps",
-    items: [
-      "Docker",
-      "Kubernetes",
-      "AWS",
-      "CI/CD",
-      "Git",
-      "GitHub Actions",
-      "Microservices",
-    ],
+    items: ["Node.js", "NestJS", "MongoDB", "PostgreSQL", "Golang", "Docker", "Redis", "AWS", "Github"],
   },
   {
     category: "AI Tools",
