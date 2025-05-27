@@ -51,7 +51,7 @@ const projects = [
   },
 ];
 
-export const getRandomColorClass = () => {
+const getRandomColorClass = () => {
   const colors = [
     "hover:bg-teal-500",
     "hover:bg-blue-500",
