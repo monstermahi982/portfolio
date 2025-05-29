@@ -1,7 +1,9 @@
+"use client";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { motion, AnimatePresence } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   AnimatedSection,
@@ -92,6 +94,7 @@ const persnal_projects = [
     description:
       "A full-stack expense tracker built with Next.js (Pages Router), MongoDB, and Tailwind CSS. It allows users to manage their expenses, banks, and categorize spending with tags.",
     link: "https://github.com/monstermahi982/expense-tracker",
+    projectLink: "https://expense.maheshgaikwad.site/",
     work: [
       "Built a full-stack expense tracking platform using Next.js (Pages Router), MongoDB Atlas, and Tailwind CSS, allowing users to manage expenses, banks, and categorize spending with tags.",
       "Implemented secure authentication with JWT for user login and route protection, and managed global auth state using Zustand or React Context.",
@@ -321,19 +324,37 @@ export default function Home() {
                         <li key={index}>{item}</li>
                       ))}
                     </ul>
-                    {project.link && (
-                      <div className="mt-auto">
-                        <Button variant="outline" asChild size="sm">
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            View on GitHub
-                          </a>
-                        </Button>
-                      </div>
-                    )}
+                    <div className="flex gap-5">
+                      {project.link && (
+                        <div className="mt-auto">
+                          <Button variant="outline" asChild size="sm">
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              View on GitHub
+                            </a>
+                          </Button>
+                        </div>
+                      )}
+                      {project.projectLink && (
+                        <div className="mt-auto">
+                          <button className="p-[3px] relative">
+                            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+                            <div className="px-8 py-1  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+                              <a
+                                href={project.projectLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Live Demo
+                              </a>
+                            </div>
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               </AnimatedProjectCard>
