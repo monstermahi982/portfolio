@@ -31,7 +31,7 @@ export const timeline: TimelineItem[] = [
   {
     name: "Megh Computing Pvt Ltd",
     position: "Full Stack Developer",
-    date: "April, 2023 - May, 2025",
+    date: "Apr, 2023 - May, 2025",
     image: "/images/megh_computing.png",
     location: "Bangalore, India",
     stack: [

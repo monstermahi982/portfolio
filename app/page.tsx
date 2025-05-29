@@ -12,6 +12,7 @@ import { AnimatedNavbar } from "@/components/AnimatedNavbar";
 import ExperienceTimeLine from "@/components/Experience";
 import clsx from "clsx";
 import { Skill, skills } from "@/lib/utils";
+import AnimatedTitleCard from "@/components/AnimationText";
 
 const projects = [
   {
@@ -180,9 +181,14 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 mt-20">
         <AnimatedSection className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="md:col-span-2">
-            <h2 className="text-xl md:text-3xl font-bold mb-4">
-              Senior Software Engineer
-            </h2>
+            <div className="md:flex gap-10">
+              <h2 className="text-xl md:text-3xl font-bold mb-4">
+                Senior Software Engineer
+              </h2>
+              <div>
+                <AnimatedTitleCard />
+              </div>
+            </div>
             <p className="text-muted-foreground mb-6 text-sm md:text-base">
               Passionate software engineer with expertise in full-stack
               development, specializing in Node.js, React, and Vue.js. Committed
@@ -190,10 +196,17 @@ export default function Home() {
               applications that deliver exceptional user experiences.
             </p>
             <div className="flex gap-4">
-              <Button asChild>
+              <Button
+                asChild
+                className="bg-plumdark text-white hover:bg-red-900"
+              >
                 <a href="#contact">Contact Me</a>
               </Button>
-              <Button variant="outline" asChild>
+              <Button
+                variant="outline"
+                asChild
+                className="border-2 border-plumdark"
+              >
                 <a href="#projects">View Projects</a>
               </Button>
             </div>
@@ -248,7 +261,7 @@ export default function Home() {
               <AnimatedProjectCard key={index}>
                 <Card className="h-full flex flex-col">
                   <CardContent className="pt-6 flex-grow">
-                    <h3 className="font-bold mb-2">{project.title}</h3>
+                    <h3 className="font-bold text-xl mb-2">{project.title}</h3>
                     <p className="text-sm text-muted-foreground mb-4">
                       {project.description}
                     </p>
@@ -266,7 +279,7 @@ export default function Home() {
                         </Badge>
                       ))}
                     </div>
-                    <ul className="list-disc mx-5 my-3 text-sm text-neutral-500">
+                    <ul className="list-disc mx-5 my-3 space-y-2 text-sm text-neutral-500">
                       {project.work?.map((item: string, index: number) => (
                         <li key={index}>{item}</li>
                       ))}
@@ -285,7 +298,7 @@ export default function Home() {
               <AnimatedProjectCard key={index}>
                 <Card className="h-full flex flex-col">
                   <CardContent className="pt-6 flex-grow">
-                    <h3 className="font-bold mb-2">{project.title}</h3>
+                    <h3 className="font-bold text-xl mb-2">{project.title}</h3>
                     <p className="text-sm text-muted-foreground mb-4">
                       {project.description}
                     </p>
@@ -303,7 +316,7 @@ export default function Home() {
                         </Badge>
                       ))}
                     </div>
-                    <ul className="list-disc mx-5 my-3 text-sm text-neutral-500">
+                    <ul className="list-disc space-y-2 mx-5 my-3 text-sm text-neutral-500">
                       {project.work?.map((item: string, index: number) => (
                         <li key={index}>{item}</li>
                       ))}
