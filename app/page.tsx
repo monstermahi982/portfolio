@@ -94,7 +94,7 @@ const persnal_projects = [
     description:
       "A full-stack expense tracker built with Next.js (Pages Router), MongoDB, and Tailwind CSS. It allows users to manage their expenses, banks, and categorize spending with tags.",
     link: "https://github.com/monstermahi982/expense-tracker",
-    projectLink: "https://expense.maheshgaikwad.site/",
+    projectLink: "https://expense.maheshgaikwad.site",
     work: [
       "Built a full-stack expense tracking platform using Next.js (Pages Router), MongoDB Atlas, and Tailwind CSS, allowing users to manage expenses, banks, and categorize spending with tags.",
       "Implemented secure authentication with JWT for user login and route protection, and managed global auth state using Zustand or React Context.",
@@ -111,6 +111,21 @@ const persnal_projects = [
       "Tailwind CSS",
       "Shadcn/ui",
     ],
+  },
+  {
+    title: "Modular Chat Application – Real-Time Communication SDK",
+    description:
+      "A fully-featured real-time chat application built as a reusable web component, enabling seamless integration into any frontend framework such as React, Angular, Vue, or plain JavaScript. Designed to enhance communication with rich features and AI integration.",
+    link: "https://github.com/monstermahi982/chat-plug",
+    projectLink: "https://chatplug.maheshgaikwad.site",
+    work: [
+      "Developed a full-stack chat system using NestJS, Vue.js, and MongoDB with real-time capabilities via Socket.IO, supporting both one-to-one and group chats.",
+      "Implemented advanced messaging features including @mentions in group chats, file attachments, voice message recording, and user presence (online/offline).",
+      "Integrated real-time media communication with video calling, audio calling, and screen sharing functionalities using WebRTC and Socket.IO.",
+      "Packaged the chat module as a reusable npm web component, allowing easy plug-and-play integration into any framework (React, Angular, Vue, etc.).",
+      "Enhanced communication with AI-powered support, integrating Google Gemini API for contextual smart replies and chatbot conversations.",
+    ],
+    tags: ["NestJS", "Vue.js", "MongoDB", "Socket.IO", "Gemini API"],
   },
   {
     title: "City App (Freelance)",
@@ -133,20 +148,6 @@ const persnal_projects = [
       "Redux",
       "Tailwind CSS",
     ],
-  },
-  {
-    title: "Modular Chat Application – Real-Time Communication SDK",
-    description:
-      "A fully-featured real-time chat application built as a reusable web component, enabling seamless integration into any frontend framework such as React, Angular, Vue, or plain JavaScript. Designed to enhance communication with rich features and AI integration.",
-    link: "https://github.com/maheshindexnine/custom-chat-backend",
-    work: [
-      "Developed a full-stack chat system using NestJS, Vue.js, and MongoDB with real-time capabilities via Socket.IO, supporting both one-to-one and group chats.",
-      "Implemented advanced messaging features including @mentions in group chats, file attachments, voice message recording, and user presence (online/offline).",
-      "Integrated real-time media communication with video calling, audio calling, and screen sharing functionalities using WebRTC and Socket.IO.",
-      "Packaged the chat module as a reusable npm web component, allowing easy plug-and-play integration into any framework (React, Angular, Vue, etc.).",
-      "Enhanced communication with AI-powered support, integrating Google Gemini API for contextual smart replies and chatbot conversations.",
-    ],
-    tags: ["NestJS", "Vue.js", "MongoDB", "Socket.IO", "Gemini API"],
   },
   {
     title: "Movie Booking System – Scalable Event-Based Ticketing Platform",
