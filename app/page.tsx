@@ -128,6 +128,21 @@ const persnal_projects = [
     tags: ["NestJS", "Vue.js", "MongoDB", "Socket.IO", "Gemini API"],
   },
   {
+    title: "Cinema Seats – Scalable Event-Based Ticketing Platform (movie booking app)",
+    description:
+      "A role-based movie ticket booking platform built with a microservice-inspired architecture using Kafka for distributed seat generation and booking. The system supports Admin, Vendor, and User roles with tailored access and workflows.",
+    link: "https://github.com/monstermahi982/cinema-seats",
+    projectLink: "https://cinema-seats.maheshgaikwad.site",
+    work: [
+      "Developed a full-stack movie booking system with user authentication and role-based access for Admins, Vendors, and Users using Next.js and NestJS.",
+      "Enabled Admins to manage movies, Vendors to create show timings for listed movies, and Users to book tickets based on available shows.",
+      "Integrated Kafka message queues to generate seat allocations asynchronously when a new show is created, ensuring high scalability and decoupled services.",
+      "Implemented robust booking logic using event-driven architecture to handle concurrent ticket reservations efficiently without data conflicts.",
+      "Used MongoDB for flexible schema design, storing users, shows, theaters, bookings, and seat maps with real-time updates.",
+    ],
+    tags: ["NestJS", "Next.js", "MongoDB", "Kafka", "Tailwind Css"],
+  },
+  {
     title: "City App (Freelance)",
     description:
       "This city app provides features to explore the city, local attractions, and weather forecast and markets.",
@@ -148,20 +163,6 @@ const persnal_projects = [
       "Redux",
       "Tailwind CSS",
     ],
-  },
-  {
-    title: "Movie Booking System – Scalable Event-Based Ticketing Platform",
-    description:
-      "A role-based movie ticket booking platform built with a microservice-inspired architecture using Kafka for distributed seat generation and booking. The system supports Admin, Vendor, and User roles with tailored access and workflows.",
-    link: "https://github.com/maheshindexnine/indexnine-booking-backend",
-    work: [
-      "Developed a full-stack movie booking system with user authentication and role-based access for Admins, Vendors, and Users using Next.js and NestJS.",
-      "Enabled Admins to manage movies, Vendors to create show timings for listed movies, and Users to book tickets based on available shows.",
-      "Integrated Kafka message queues to generate seat allocations asynchronously when a new show is created, ensuring high scalability and decoupled services.",
-      "Implemented robust booking logic using event-driven architecture to handle concurrent ticket reservations efficiently without data conflicts.",
-      "Used MongoDB for flexible schema design, storing users, shows, theaters, bookings, and seat maps with real-time updates.",
-    ],
-    tags: ["NestJS", "Next.js", "MongoDB", "Kafka"],
   },
 ];
 
