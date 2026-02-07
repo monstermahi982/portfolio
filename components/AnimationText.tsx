@@ -21,28 +21,19 @@ export default function AnimatedTitleCard() {
   }, []);
 
   return (
-    <div className="relative w-36 mx-auto">
-      <div className="absolute -inset-1 rounded-2xl blur-lg opacity-50 z-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"></div>
-
-      <div className="relative z-10 py-2 px-0 bg-white rounded-2xl text-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={titles[index]}
-            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              filter: "blur(0px)",
-              x: [0, -5, 5, -4, 4, -2, 2, 0],
-            }}
-            exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-xs font-semibold text-neutral-400"
-          >
-            {titles[index]}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+    <div className="h-full flex items-center">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={titles[index]}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent"
+        >
+          {titles[index]}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

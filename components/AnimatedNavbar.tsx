@@ -16,14 +16,14 @@ export function AnimatedNavbar() {
 
   return (
     <motion.nav
-      className={`md:px-40 fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b" : ""
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-background/80 backdrop-blur-md border-b shadow-sm py-2" : "bg-transparent py-4"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-6xl">
         <div className="flex justify-between items-center">
           <motion.h1
             className="text-xl md:text-2xl font-bold"

@@ -181,59 +181,63 @@ const getRandomColorClass = () => {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col md:px-40">
+    <main className="flex min-h-screen flex-col bg-gradient-to-b from-background to-secondary/20">
       <AnimatedNavbar />
-      <div className="container mx-auto px-4 py-8 mt-20">
-        <AnimatedSection className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="md:col-span-2">
-            <div className="md:flex gap-10">
-              <h2 className="text-xl md:text-3xl font-bold mb-4">
+      <div className="container mx-auto px-4 py-12 md:px-8 lg:px-16 mt-16 max-w-6xl">
+        <AnimatedSection className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+          <div className="order-2 md:order-1 space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
                 Senior Software Engineer
               </h2>
-              <div>
-                <AnimatedTitleCard />
+              <div className="h-12">
+                 <AnimatedTitleCard />
               </div>
             </div>
-            <p className="text-muted-foreground mb-6 text-sm md:text-base">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
               Passionate software engineer with expertise in full-stack
               development, specializing in Node.js, React, and Vue.js. Committed
               to writing clean, efficient code and building scalable
               applications that deliver exceptional user experiences.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 pt-4">
               <Button
                 asChild
-                className="bg-plumdark text-white hover:bg-red-900"
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <a href="#contact">Contact Me</a>
               </Button>
               <Button
                 variant="outline"
                 asChild
-                className="border-2 border-plumdark"
+                size="lg"
+                className="border-2 hover:bg-secondary/50 transition-all duration-300"
               >
                 <a href="#projects">View Projects</a>
               </Button>
             </div>
           </div>
-          <div className="flex justify-center md:justify-end items-center">
-            <Avatar className="h-32 w-32 md:h-60 md:w-60">
+          <div className="order-1 md:order-2 flex justify-center md:justify-end relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-blue-500/20 blur-3xl rounded-full" />
+            <Avatar className="h-48 w-48 md:h-80 md:w-80 border-4 border-background shadow-2xl relative z-10">
               <AvatarImage
                 src="/images/mahesh_profile.jpeg"
                 alt="Mahesh Gaikwad"
+                className="object-cover"
               />
-              <AvatarFallback>MG</AvatarFallback>
+              <AvatarFallback className="text-4xl">MG</AvatarFallback>
             </Avatar>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="mb-16" delay={0.2}>
-          <h2 className="text-2xl font-bold mb-6">Skills & Technologies</h2>
+        <AnimatedSection className="mb-24" delay={0.2}>
+          <h2 className="text-3xl font-bold mb-8 text-center">Skills & Technologies</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skills.map((skillGroup: Skill, index: number) => (
-              <Card key={index}>
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-muted/60 bg-card/50 backdrop-blur-sm">
                 <CardContent className="pt-6">
-                  <h3 className="font-bold mb-3">{skillGroup.category}</h3>
+                  <h3 className="font-bold mb-4 text-lg text-primary">{skillGroup.category}</h3>
                   <div className="flex flex-wrap gap-2">
                     {skillGroup.items.map((skill, skillIndex) => (
                       <Badge
@@ -254,23 +258,31 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="mb-16" id="experience" delay={0.3}>
-          <h2 className="text-2xl font-bold mb-6">Work Experience</h2>
+        <AnimatedSection className="mb-24" id="experience" delay={0.3}>
+          <h2 className="text-3xl font-bold mb-8 text-center">Work Experience</h2>
           <ExperienceTimeLine />
         </AnimatedSection>
 
-        <AnimatedProjectsSection className="mb-16" id="projects">
-          <h2 className="text-2xl font-bold mb-6">Projects</h2>
-          <div className="grid grid-cols-1 space-y-5">
+        <AnimatedProjectsSection className="mb-24" id="projects">
+          <h2 className="text-3xl font-bold mb-8 text-center">Featured Projects</h2>
+          <div className="grid grid-cols-1 gap-8">
             {projects.map((project, index) => (
               <AnimatedProjectCard key={index}>
-                <Card className="h-full flex flex-col">
-                  <CardContent className="pt-6 flex-grow">
-                    <h3 className="font-bold text-xl mb-2">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">
+                <Card className="h-full flex flex-col overflow-hidden hover:shadow-xl transition-all duration-300 border-muted/60 bg-card/50 backdrop-blur-sm group">
+                  <CardContent className="p-8 flex-grow">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2">
+                        <h3 className="font-bold text-2xl group-hover:text-primary transition-colors">{project.title}</h3>
+                        {project.link && (
+                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                                <Github className="w-5 h-5" />
+                            </a>
+                        )}
+                    </div>
+                    
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, tagIndex) => (
                         <Badge
                           key={tagIndex}
@@ -284,9 +296,12 @@ export default function Home() {
                         </Badge>
                       ))}
                     </div>
-                    <ul className="list-disc mx-5 my-3 space-y-2 text-sm text-neutral-500">
+                    <ul className="space-y-3 text-muted-foreground">
                       {project.work?.map((item: string, index: number) => (
-                        <li key={index}>{item}</li>
+                        <li key={index} className="flex items-start gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                            <span>{item}</span>
+                        </li>
                       ))}
                     </ul>
                   </CardContent>
@@ -296,18 +311,18 @@ export default function Home() {
           </div>
         </AnimatedProjectsSection>
 
-        <AnimatedProjectsSection className="mb-16" id="projects">
-          <h2 className="text-2xl font-bold mb-6">Personal Projects</h2>
-          <div className="grid grid-cols-1 space-y-5">
+        <AnimatedProjectsSection className="mb-24" id="personal-projects">
+          <h2 className="text-3xl font-bold mb-8 text-center">Personal Projects</h2>
+          <div className="grid grid-cols-1 gap-8">
             {persnal_projects.map((project, index) => (
               <AnimatedProjectCard key={index}>
-                <Card className="h-full flex flex-col">
-                  <CardContent className="pt-6 flex-grow">
-                    <h3 className="font-bold text-xl mb-2">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">
+                <Card className="h-full flex flex-col overflow-hidden hover:shadow-xl transition-all duration-300 border-muted/60 bg-card/50 backdrop-blur-sm group">
+                  <CardContent className="p-8 flex-grow flex flex-col">
+                    <h3 className="font-bold text-2xl mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, tagIndex) => (
                         <Badge
                           key={tagIndex}
@@ -321,40 +336,37 @@ export default function Home() {
                         </Badge>
                       ))}
                     </div>
-                    <ul className="list-disc space-y-2 mx-5 my-3 text-sm text-neutral-500">
+                    <ul className="space-y-3 text-muted-foreground mb-8 flex-grow">
                       {project.work?.map((item: string, index: number) => (
-                        <li key={index}>{item}</li>
+                        <li key={index} className="flex items-start gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                            <span>{item}</span>
+                        </li>
                       ))}
                     </ul>
-                    <div className="flex gap-5">
+                    <div className="flex flex-wrap gap-4 mt-auto pt-4 border-t border-muted/50">
                       {project.link && (
-                        <div className="mt-auto">
-                          <Button variant="outline" asChild size="sm">
+                        <Button variant="outline" asChild size="sm" className="gap-2 hover:bg-secondary/80">
                             <a
                               href={project.link}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              View on GitHub
+                              <Github className="w-4 h-4" />
+                              View Code
                             </a>
-                          </Button>
-                        </div>
+                        </Button>
                       )}
                       {project.projectLink && (
-                        <div className="mt-auto">
-                          <button className="p-[3px] relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-                            <div className="px-8 py-1  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
-                              <a
+                        <Button asChild size="sm" className="gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white border-0">
+                             <a
                                 href={project.projectLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
                                 Live Demo
                               </a>
-                            </div>
-                          </button>
-                        </div>
+                        </Button>
                       )}
                     </div>
                   </CardContent>
@@ -364,30 +376,32 @@ export default function Home() {
           </div>
         </AnimatedProjectsSection>
 
-        <AnimatedSection className="mb-16" id="contact" delay={0.5}>
-          <h2 className="text-2xl font-bold mb-6">Contact Me</h2>
-          <Card>
-            <CardContent className="pt-6">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <AnimatedSection className="mb-24" id="contact" delay={0.5}>
+          <h2 className="text-3xl font-bold mb-8 text-center">Get In Touch</h2>
+          <Card className="bg-card/50 backdrop-blur-sm border-muted/60">
+            <CardContent className="p-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a
                   href="tel:+919370963976"
-                  target="_blank"
-                  className="flex flex-col items-center p-4 hover:bg-muted rounded-lg transition-colors"
+                  className="flex flex-col items-center p-6 hover:bg-secondary/50 rounded-xl transition-all duration-300 hover:scale-105 group"
                 >
-                  <Phone className="h-8 w-8 mb-2" />
-                  <h3 className="font-medium">Phone</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <div className="p-4 rounded-full bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Phone className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-bold mb-1">Phone</h3>
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                     +91 9370963976
                   </p>
                 </a>
                 <a
                   href="mailto:maheshgaikwad8892@gmail.com"
-                  target="_blank"
-                  className="flex flex-col items-center p-4 hover:bg-muted rounded-lg transition-colors"
+                  className="flex flex-col items-center p-6 hover:bg-secondary/50 rounded-xl transition-all duration-300 hover:scale-105 group"
                 >
-                  <Mail className="h-8 w-8 mb-2" />
-                  <h3 className="font-medium">Email</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <div className="p-4 rounded-full bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-bold mb-1">Email</h3>
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                     maheshgaikwad8892@gmail.com
                   </p>
                 </a>
@@ -395,11 +409,13 @@ export default function Home() {
                   href="https://github.com/monstermahi982"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center p-4 hover:bg-muted rounded-lg transition-colors"
+                  className="flex flex-col items-center p-6 hover:bg-secondary/50 rounded-xl transition-all duration-300 hover:scale-105 group"
                 >
-                  <Github className="h-8 w-8 mb-2" />
-                  <h3 className="font-medium">GitHub</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <div className="p-4 rounded-full bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Github className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-bold mb-1">GitHub</h3>
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                     monstermahi982
                   </p>
                 </a>
@@ -407,11 +423,13 @@ export default function Home() {
                   href="https://www.linkedin.com/in/maheshgaikwad26"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center p-4 hover:bg-muted rounded-lg transition-colors"
+                  className="flex flex-col items-center p-6 hover:bg-secondary/50 rounded-xl transition-all duration-300 hover:scale-105 group"
                 >
-                  <Linkedin className="h-8 w-8 mb-2" />
-                  <h3 className="font-medium">LinkedIn</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <div className="p-4 rounded-full bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Linkedin className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-bold mb-1">LinkedIn</h3>
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                     maheshgaikwad26
                   </p>
                 </a>
