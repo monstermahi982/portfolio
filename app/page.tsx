@@ -18,6 +18,29 @@ import AnimatedTitleCard from "@/components/AnimationText";
 
 const projects = [
   {
+    title: "Nutanix",
+    description:
+      "Nutanix is a cloud computing software company that provides hyper-converged infrastructure (HCI) solutions.",
+    link: "https://nutanix.com/",
+    work: [
+      "Delivered a scalable LMS web application using Vue.js, Nodejs, MongoDB, Postgres with complete ownership of full stack development, deployment, and feature delivery.",
+      "Built key modules including Dashboard redesign, Surveys feature.",
+      "Achieved ₹2.3 crore in gift voucher sales within 5 months, onboarding 45 organizations and supporting 400–600 daily active users.",
+      "Designed responsive UIs and complex data tables using Syncfusion and AG Grid, enhancing usability and operational efficiency.",
+      "Created responsive UIs and data grids using Syncfusion and AG Grid, managed application state with Pinia.",
+      "Optimized state management and performance using Pinia and TypeScript, ensuring smooth user experience and maintainable codebase.",
+    ],
+    tags: [
+      "Javascript",
+      "Node.js",
+      "MongoDB",
+      "Postgres",
+      "Vuejs",
+      "Vuex Store",
+      "Vuetify",
+    ],
+  },
+  {
     title: "Ginesys CRM (Indexnine Technology Pvt Ltd)",
     description:
       "Ginesys is CRM software used retail and logitic management solutions.",

@@ -16,9 +16,24 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
+    name: "Nutanix",
+    position: "Senior Software Engineer",
+    date: "Oct, 2025 - Present",
+    image: "/images/nutanix.png",
+    location: "Bangalore, India",
+    stack: [
+      { name: "Vue.js", icon: "/icons/Vue.js.png" },
+      { name: "Nodejs", icon: "/icons/node.png" },
+      { name: "MongoDB", icon: "/icons/mongo.png" },
+      { name: "PostgreSQL", icon: "/icons/postgres.png" },
+      { name: "TypeScript", icon: "/icons/typescript.png" },
+      { name: "Kafka", icon: "/icons/kafka.png" },
+    ],
+  },
+  {
     name: "Indexnine Technologies Pvt Ltd",
     position: "Frontend Developer",
-    date: "May, 2024 - Present",
+    date: "May, 2024 - Sep, 2025",
     image: "/images/indexnine_logo.png",
     location: "Pune, India",
     stack: [
